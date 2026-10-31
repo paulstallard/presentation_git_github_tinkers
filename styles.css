@@ -73,7 +73,10 @@
 
 /* Move logo to top right (it's bottom right by default) */
 .reveal .slide-logo {
-    max-height: 3em !important;
+    /* vh, not em: the logo sits outside reveal's scaled slide, so size it
+       relative to the window to keep it in proportion with the slide
+       (≈120px at 1080p, ≈77px in the 1244x700 PDF) */
+    max-height: 11vh !important;
     top: 0 !important;
     right: 12px !important;
 }
@@ -231,6 +234,21 @@
 }
 .tag-git { background: #f05033; }     /* git logo orange */
 .tag-github { background: #6e40c9; }  /* GitHub purple */
+
+/* Rounded border around tables. Rounded corners need border-collapse:
+   separate (the theme sets collapse); overflow clips the header colour */
+.reveal table {
+  border-collapse: separate;
+  border: 2px solid var(--panel-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Table header row: amber on the lighter navy panel, like .subhead */
+.reveal table th {
+  background: var(--panel-bg);
+  color: var(--hl-color);
+}
 
 /* Let mermaid diagrams use the full slide width */
 .reveal .cell-output-display svg { max-width: 100% !important; height: auto; }
