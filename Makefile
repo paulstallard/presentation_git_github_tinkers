@@ -14,13 +14,11 @@ to_pi:
 
 pdf:
 	$(DECKTAPE) _output/index.html output.pdf
-	pdf_compress_images output.pdf output-small.pdf
-#	gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -sOutputFile=output-small.pdf output.pdf
+	gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -sOutputFile=output-small.pdf output.pdf
 
 pdf-builds:
 	$(DECKTAPE) --fragments _output/index.html output-builds.pdf
-	pdf_compress_images output-builds.pdf output-builds-small.pdf
-#	gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -sOutputFile=output-builds-small.pdf output-builds.pdf
+	gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -sOutputFile=output-builds-small.pdf output-builds.pdf
 
 clean:
 	rm -rf _output/*

@@ -5,7 +5,7 @@ format:
   revealjs:
     logo: img/betaplus-rounded-logo.png
     theme: [dark, custom.scss]
-    slide-number: true
+    slide-number: c
     css: styles.css
     transition: fade
     link-external-newwindow: true
