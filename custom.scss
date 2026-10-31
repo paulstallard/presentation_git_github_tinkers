@@ -1,0 +1,31 @@
+/*-- scss:defaults --*/
+
+$body-bg: #0f2841 !default;
+$body-color: #fff !default;
+$link-color: #42affa !default;
+$input-panel-bg: rgba(233, 236, 239, 0.2) !default;
+
+// @font-face for Source Sans 3 is in styles.css
+$font-family-sans-serif: '"Source Sans 3"', "Source Sans Pro", Helvetica, sans-serif !default;
+$presentation-heading-font: $font-family-sans-serif !default;
+
+// Mermaid diagrams: boxes match the panel colours in styles.css
+$mermaid-label-bg-color: #1f4570 !default;
+$mermaid-label-fg-color: #fff !default;
+$mermaid-edge-color: #ccc !default;
+
+#title-slide {
+  .title {
+    color: var(--hl-color);
+    font-weight: bold;
+  }
+
+  .subtitle {
+    color: var(--text);
+    font-style: italic;
+  }
+
+  .quarto-title-author {
+    color: var(--text);
+  }
+}

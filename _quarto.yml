@@ -1,0 +1,10 @@
+project:
+  output-dir: _output
+  resources:
+    - fonts/
+
+format:
+  revealjs:
+    margin: 0.1
+    width: 1244
+    height: 700

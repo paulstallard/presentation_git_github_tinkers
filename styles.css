@@ -1,0 +1,255 @@
+/* Source Sans 3, downloaded into fonts/ by the Makefile. Unlike the
+   Source Sans Pro that Quarto bundles, it includes Cyrillic, so homograph
+   domains render in the same font as the rest of the slide. */
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("fonts/SourceSans3.ttf") format("truetype");
+  font-weight: 200 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("fonts/SourceSans3-Italic.ttf") format("truetype");
+  font-weight: 200 900;
+  font-style: italic;
+}
+
+:root {
+  /* highlight text or banner background */
+  --hl-color: #f0b429;
+  /* banner border */
+  --hl-border: #c88f00;
+  /* Text colour, used over highlight background in banners */
+  --hl-text:   #0f2841;
+
+  /* Keep in sync with $body-bg / $body-color in custom.scss */
+  --bg:     #0f2841;
+  --text:   #fff;
+  /* Slightly lighter navy for boxed panels (subhead, quote) */
+  --panel-bg:     #1f4570;
+  --panel-border: #2e5c8c;
+
+  /* Mimics Chrome's link-hover status bubble - deliberately off-palette */
+  --hover-url-bg:     lightgrey;
+  --hover-url-text:   black;
+  --hover-url-border: black;
+}
+
+.banner {
+    text-align: center;
+    max-width: 85%;
+    width: fit-content;
+    padding:  0em 1em;
+    font-size: .7em;
+    border-radius: 16px;
+    color: var(--hl-text);
+    background-color: var(--hl-color);
+    border: 4px solid var(--hl-border);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Underline links on hover; reveal's theme only changes the colour */
+.reveal a:hover {
+    text-decoration: underline;
+}
+
+/* Links in banners: the default light-blue link colour is unreadable on
+   amber, so invert them (amber on navy) to stand out from the banner text */
+.reveal .banner a {
+    color: var(--hl-color);
+    background-color: var(--bg);
+    padding: 0 0.3em;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.reveal .banner a:hover {
+    text-decoration: underline;
+}
+
+/* Move logo to top right (it's bottom right by default) */
+.reveal .slide-logo {
+    max-height: 3em !important;
+    top: 0 !important;
+    right: 12px !important;
+}
+
+/* Default: page numbers go bottom right unless there's a logo. If there is a logo, the logo is placed bottom
+   right and the page numbers move to top right.
+   Wanted: As I'm moving the logo to top right, I need to move the page number back to bottom right */
+.reveal.has-logo .slide-number { top: initial !important; bottom: 10px !important; right: 10px !important; }
+
+/* hide slide number on slides with state="hide-number" */
+.hide-number .slide-number {
+  display: none !important;
+}
+
+.reveal .centerh {
+    text-align: center;
+    display: block;
+}
+
+.reveal .hlb {
+    color: var(--hl-color);
+    font-weight: bold;
+}
+
+.reveal .hl {
+    color: var(--hl-color);
+}
+
+/* centre all images */
+.reveal section img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* amber text on lighter navy panel
+   used as heading on bullet lists */
+.subhead {
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--hl-color);
+    font-weight: bold;
+    background-color: var(--panel-bg);
+    padding: 0em 0.75em; /* space around the text */
+    border-radius: 10px;
+    display: block;
+}
+
+.center-xy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.rightalign {
+    text-align: right;
+    width: 100%;
+}
+
+.reveal .diag-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-20deg);
+
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--text);
+    padding: 0.5em 2em;
+
+    font-size: 2em;
+    font-weight: bold;
+
+    border: 3px solid var(--text);
+    border-radius: 8px;
+
+    text-align: center;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.quote {
+    text-align: center;
+    max-width: 85%;
+    width: fit-content;
+    padding: 0em 1em; /* space around the text */
+    font-size: .7em;
+    color: var(--text);
+    background-color: var(--panel-bg);
+    border: 2px solid var(--panel-border);
+    border-radius: 16px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hover-url {
+    border-radius: 0px 10px 0px 10px;
+    color: var(--hover-url-text);
+    background-color: var(--hover-url-bg);
+    font-size: 0.8em;
+    border: 2px solid var(--hover-url-border);
+    padding: 0em .5em;
+}
+
+/* reveal.js caps videos at 95%, leaving Video.js's black box showing */
+.reveal .video-js video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Wrapper for diagrams: set --diagram-height on the div and the diagram
+   scales to fit that height, centred */
+.reveal .diagram svg {
+    width: 100%;
+    height: var(--diagram-height, 400px);
+    max-width: none !important;
+}
+
+/* Mermaid ignores its font-size settings here, so enlarge diagram text with
+   CSS. Mermaid lays out for its own default size, so check for overlaps. */
+.reveal .diagram .messageText,
+.reveal .diagram text.actor > tspan {
+    font-size: 20px !important;
+}
+
+/* Halo behind message labels so lifelines don't run through the text.
+   Mermaid sets stroke: none on these, hence !important */
+.reveal .diagram .messageText {
+    paint-order: stroke;
+    stroke: #0f2841 !important;
+    stroke-width: 8px;
+    stroke-linejoin: round;
+}
+
+/* A pause (. . .) part-way through a list splits it into separate lists.
+   Reveal makes lists inline-block, so item margins don't collapse across
+   the split and the gap is bigger. Make them block with no bottom margin
+   so the spacing matches a single list */
+.reveal :has(> ul + .fragment > ul) > ul,
+.reveal :has(> ul + .fragment > ul) > .fragment > ul {
+    display: block;
+    margin-bottom: 0;
+}
+
+/* git / GitHub labels on the "Working with others" slide */
+.tag-git,
+.tag-github {
+  display: inline-block;
+  padding: 0.05em 0.5em;
+  border-radius: 0.4em;
+  font-size: 0.75em;
+  font-weight: bold;
+  color: #fff;
+}
+.tag-git { background: #f05033; }     /* git logo orange */
+.tag-github { background: #6e40c9; }  /* GitHub purple */
+
+/* Let mermaid diagrams use the full slide width */
+.reveal .cell-output-display svg { max-width: 100% !important; height: auto; }
+
+/* Clickable demo links under a slide's content */
+.reveal .demo-links {
+  display: block;
+  margin-top: 0.8em;
+  font-size: 0.7em;
+}
+
+/* git and GitHub logos on the title slide, side by side */
+.reveal .title-logos p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
+  margin: 2em 0 0;
+}
+.reveal .title-logos img { margin: 0; display: inline-block; }
+.reveal .title-logos .logo-git { height: 90px; }
+.reveal .title-logos .logo-github { height: 62px; }
