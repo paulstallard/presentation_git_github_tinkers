@@ -7,10 +7,9 @@ DECKTAPE=decktape reveal --size 1244x700 \
 default:
 	quarto render index.qmd
 	check-classes
-	cp img/betaplus.ico _output/favicon.ico
 
 to_pi:
-	rsync -avv --chmod=F644,D755 _output/ huxley.local:html/other/tinkers_git
+	rsync -avv --chmod=F644,D755 _output/ huxley.local:html/other/tinkers_git --delete
 
 pdf:
 	$(DECKTAPE) _output/index.html output.pdf

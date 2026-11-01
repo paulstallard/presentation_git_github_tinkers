@@ -10,8 +10,12 @@ format:
     transition: fade
     link-external-newwindow: true
     footer: "Paul Stallard &nbsp; | &nbsp; Tinkers Study Group &nbsp; | &nbsp; 4 November 2026"
+    include-in-header:
+      text: '<link rel="icon" href="img/betaplus.ico">'
 mermaid:
   theme: dark
+resources:
+  - /img/betaplus.ico
 ---
 
 ## {#title-id data-menu-title="Git and GitHub" }
@@ -25,7 +29,7 @@ _What they are, what the words mean, and why people use them_
 :::
 
 :::{.title-logos}
-![](img/logo-git-dark.png){.logo-git fig-alt="git logo"}
+![](img/logo-git-dark.png){.logo-git fig-alt="Git logo"}
 ![](img/logo-github-dark.png){.logo-github fig-alt="GitHub logo"}
 :::
 
@@ -38,35 +42,35 @@ _What they are, what the words mean, and why people use them_
 
 ::: notes
 Open with a shared pain everyone recognises, coders or not. Ask for a show of
-hands: who has done the "final_v2" thing? This is the problem git solves:
+hands: who has done the "final_v2" thing? This is the problem Git solves:
 never lose work, see exactly what changed and why, experiment safely, and
 collaborate without emailing files around.
 Aim to be done with this slide by minute 2.
 :::
 
-## What is git?
+## What is Git?
 
-- A **version control system**: it records the history of a folder of files
-- Free, runs on *your own* computer, works offline
+- A [version control system]{.hlb}: it records the history of a folder of files
+- Free, [runs on *your own* computer]{.hlb}, and works offline
 - Written by Linus Torvalds in 2005 to manage the Linux kernel
-- **Distributed**: every copy has the full history
-- Successor to tools some of you may know: SCCS, RCS, CVS, Subversion
+- [Distributed]{.hlb}: every copy has the full history
+- Successor to tools like: SCCS, RCS, CVS, Subversion
 
 ::: notes
-Key message: git is a program, like a word processor is a program. It lives on
+Key message: Git is a program, like a word processor is a program. It lives on
 your machine. No internet or account needed.
 Expect a question about "distributed" vs the older central-server systems
 (CVS/Subversion). Short answer: no single master server you depend on; every
 copy is a complete backup. Mention that "git" is British slang, and Torvalds
 joked he names projects after himself.
-Lead straight into the next slide: "So if git is on your machine, what's GitHub?"
+Lead straight into the next slide: "So if Git is on your machine, what's GitHub?"
 :::
 
 ## Git vs GitHub
 
 :::: {.columns}
 ::: {.column width="50%"}
-[git]{.subhead}
+[Git]{.subhead}
 
 - A program
 - Runs on your computer
@@ -77,22 +81,28 @@ Lead straight into the next slide: "So if git is on your machine, what's GitHub?
 [GitHub]{.subhead}
 
 - A website (owned by Microsoft)
-- Stores copies of git repos online
+- Stores copies of Git repos online
 - Adds sharing, discussion and automation
 - Rivals: GitLab, Codeberg, ...
 :::
 ::::
 
-**GitHub is like Dropbox for git projects, plus a noticeboard.**
+[Git is to GitHub as email is to Gmail]{.centerh .hlb}
 
 ::: notes
-This is the slide the audience most needs. Say it twice: you can use git
-without GitHub, but GitHub is built around git. GitHub hosts the repository
-and adds a website on top. Another way to put it: git is to GitHub as email
-is to Gmail. Pause for questions; this usually triggers several.
+This is the slide the audience most needs. Say it twice: you can use Git
+without GitHub, but GitHub is built around Git. GitHub hosts the repository
+and adds a website on top.
+Unpack the analogy: email existed long before Gmail and works without it.
+Gmail is one popular service built around it, with extras on top, and you
+could switch to Outlook or your ISP's mail and still have email. In the same
+way, GitLab and Codeberg are alternatives to GitHub. Nothing moves until
+you choose to send it: you send and fetch your changes, just as you send
+and check your mail.
+Pause for questions; this usually triggers several.
 Automation example: GitHub Actions. When someone pushes a change to our club
 website, GitHub automatically publishes it to our web host. Nobody has to
-upload files by hand. That's a GitHub feature, not part of git. Keep it to
+upload files by hand. That's a GitHub feature, not part of Git. Keep it to
 that; no need to go into how it works.
 :::
 
@@ -100,7 +110,7 @@ that; no need to go into how it works.
 
 | Term | Plain English |
 |------|---------------|
-| **Repository** ("repo") | A project folder whose history git is tracking |
+| **Repository** ("repo") | A project folder whose history Git is tracking |
 | **Commit** | A saved snapshot of the files, with a note saying what changed and who did it |
 | **History / log** | The list of all commits, oldest to newest |
 | **Diff** | The differences between two versions |
@@ -140,7 +150,7 @@ gitGraph
 Analogy: photocopy the document, scribble on the copy, and if you like the
 result fold the changes back in. If not, throw the copy away and nothing is
 harmed. Possible question on "conflicts": when two branches change the same
-lines, git asks a human to decide. Keep it brief.
+lines, Git asks a human to decide. Keep it brief.
 If the master/main renaming comes up, keep it short: GitHub changed the
 default in 2020.
 :::
@@ -149,17 +159,17 @@ default in 2020.
 
 | Term | Plain English | |
 |------|---------------|:-:|
-| **Remote** | A copy of the repo elsewhere, often GitHub | [git]{.tag-git} |
-| **Clone** | Download a full copy, history and all | [git]{.tag-git} |
-| **Push / Pull** | Send your commits up / fetch others' down | [git]{.tag-git} |
+| **Remote** | A copy of the repo elsewhere, often GitHub | [Git]{.tag-git} |
+| **Clone** | Download a full copy, history and all | [Git]{.tag-git} |
+| **Push / Pull** | Send your commits up / fetch others' down | [Git]{.tag-git} |
 | **Fork** | Your own copy of someone else's repo | [GitHub]{.tag-github} |
 | **Pull request** | "Please pull my changes into your project" | [GitHub]{.tag-github} |
 | **Issue** | A bug report or feature request | [GitHub]{.tag-github} |
 
 ::: notes
-Clone, push and pull are git words. Fork, pull request and issue are GitHub
+Clone, push and pull are Git words. Fork, pull request and issue are GitHub
 words (other sites have equivalents; GitLab says "merge request").
-That distinction reinforces the git vs GitHub slide.
+That distinction reinforces the Git vs GitHub slide.
 :::
 
 ## What you've seen on GitHub
@@ -188,7 +198,7 @@ Pi-hole: "If you run Pi-hole, this is where it's made."
 - The file list is the repository. Scroll down: the README is the front
   page, and it has the one-line install command people may have used.
 - The green Code button: Download ZIP gives just the files; clone gives the
-  full history (that's git).
+  full history (that's Git).
 - "N commits" link (above the file list): the history from the vocabulary
   slide. Click a commit to show the diff (red = removed, green = added).
 - Branch dropdown / "N branches": the branches slide for real. The main
@@ -210,7 +220,7 @@ Pi-hole: "If you run Pi-hole, this is where it's made."
 Audacity: a program everyone knows. Its Releases page has ready-made
 downloads for Windows, Mac and Linux.
 
-This presentation: git isn't just for code. Small and personal: show the
+This presentation: Git isn't just for code. Small and personal: show the
 commit history of the slides you're looking at.
 
 Before the talk: pick one good issue and one merged PR, and note them here so
@@ -231,7 +241,7 @@ read-only copy. Linux changes still arrive as emailed patches.
 
 ::: notes
 Git isn't just for code: notes, websites, config files, even this talk (these
-slides are written in Quarto and kept in git).
+slides are written in Quarto and kept in Git).
 The organiser will handle any follow-up meeting and see who's interested, so
 no need to mention it here.
 :::
