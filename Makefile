@@ -1,4 +1,4 @@
-.PHONEY: default to_pi pdf pdf-builds clean veryclean
+.PHONY: default to_pi pdf pdf-builds clean
 
 DECKTAPE=decktape reveal --size 1244x700 \
 	--pdf-author "Paul Stallard" \
