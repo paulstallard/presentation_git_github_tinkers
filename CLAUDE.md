@@ -3,12 +3,12 @@
 ## Audience and occasion
 - Tinkers Study Group, a local computer club, on 4 November 2026.
 - Most members are retired. Many have coded in the past and a few still do.
-- Some have used public projects on GitHub, but very few use git themselves.
+- Some have used public projects on GitHub, but very few use Git themselves.
 
 ## Goals
 - Help people understand the **terminology** (repository, commit, branch, merge, clone, push, pull, fork, pull request, and so on).
 - Explain **why** people use version control.
-- Make the **difference between git and GitHub** clear, since it is widely misunderstood.
+- Make the **difference between Git and GitHub** clear, since it is widely misunderstood.
 
 ## Constraints
 - About 20 minutes, so keep it short.
@@ -20,3 +20,6 @@
 ## Tooling
 - Built with Quarto and revealjs (`index.qmd`, `_quarto.yml`, `custom.scss`, `styles.css`, `Makefile`).
 - Speaker notes go in `::: notes` blocks.
+
+## Style
+- Write "Git" (capital G) for the program. Use lower-case `git` only in commands such as `git add`.
